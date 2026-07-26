@@ -4,9 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yi-Cheng Wang | Portfolio</title>
-<!-- 圖片檔名與舊模板相同:myphoto.png / icpc.jpg / twsc2.jpg / com.jpg /
-     ICPC_cer.png / TOPC.png / twsc2_cer.png / digital2.png / linebot.png /
-     web.png / dct.png / table.png,放在同一資料夾即可直接顯示 -->
+<!-- ============================================
+     圖片檔名(放在同一資料夾即可顯示):
+     頭像:myphoto.png
+     Logo:ncu.png(中央大學校徽)、nttu.png(臺東大學校徽)、tsmc.png(台積電)
+          找不到圖片時會自動顯示縮寫文字,不會破版
+     活動照:icpc.jpg / twsc2.jpg / com.jpg
+     證書:ICPC_cer.png / TOPC.png / twsc2_cer.png
+     專案圖:digital2.png / linebot.png / web.png / dct.png / table.png
+     ============================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -57,18 +63,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 
 /* ---------- 共用 ---------- */
 section{padding:60px 0;border-top:1px solid var(--line)}
-h2{font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:32px}
+h2{font-size:13.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:36px}
 h3{font-size:16.5px;font-weight:600}
 
-/* ---------- 學歷 / 經歷 ---------- */
-.row{display:grid;grid-template-columns:170px 1fr;gap:24px;margin-bottom:34px}
-.row:last-child{margin-bottom:0}
-.row-time{font-size:14px;color:var(--gray);padding-top:2px;line-height:1.6}
-.row-sub{font-size:14px;color:var(--gray);margin-bottom:6px}
-.row p,.row li{font-size:15px;color:var(--body)}
-.row ul{list-style:none;margin-top:4px}
-.row li{padding-left:16px;position:relative}
-.row li::before{content:'';position:absolute;left:2px;top:12px;width:4px;height:4px;border-radius:50%;background:#C3C9D1}
+/* ---------- 時間軸(學歷 / 經歷共用) ---------- */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:27px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-item{position:relative;display:grid;grid-template-columns:56px 1fr;gap:24px;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+/* Logo 節點 */
+.tl-logo{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1;flex-shrink:0}
+.tl-logo img{width:100%;height:100%;object-fit:contain;padding:6px;display:block}
+.tl-logo .tl-fallback{display:none;font-size:12px;font-weight:700;color:var(--gray);letter-spacing:.02em}
+.tl-content{padding-top:4px}
+.tl-time{font-size:13.5px;font-weight:600;color:var(--accent);margin-bottom:2px}
+.tl-time span{color:var(--gray);font-weight:400}
+.tl-sub{font-size:14px;color:var(--gray);margin-bottom:6px}
+.tl-content p,.tl-content li{font-size:15px;color:var(--body)}
+.tl-content ul{list-style:none;margin-top:4px}
+.tl-content li{padding-left:16px;position:relative}
+.tl-content li::before{content:'';position:absolute;left:2px;top:12px;width:4px;height:4px;border-radius:50%;background:#C3C9D1}
 
 /* ---------- 榮譽 ---------- */
 .honor{display:grid;grid-template-columns:64px 1fr;gap:24px;margin-bottom:22px;align-items:baseline}
@@ -127,9 +141,12 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
 @media (max-width:640px){
   .hero{padding:120px 0 56px}
   .hero-top{flex-direction:column;align-items:flex-start;gap:20px}
-  .row,.skill-row{grid-template-columns:1fr;gap:4px}
+  .timeline::before{left:23px}
+  .tl-item{grid-template-columns:48px 1fr;gap:16px}
+  .tl-logo{width:48px;height:48px}
   .honor{grid-template-columns:56px 1fr;gap:14px}
   .project{grid-template-columns:1fr;gap:14px}
+  .skill-row{grid-template-columns:1fr;gap:4px}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
 }
@@ -177,27 +194,39 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
   </div>
 </header>
 
-<!-- ================= 學歷 ================= -->
+<!-- ================= 學歷(時間軸) ================= -->
 <section id="education">
   <div class="wrap">
     <h2 data-en="Education" data-zh="學歷">Education</h2>
-    <div class="row">
-      <div class="row-time" data-en="Sep 2025 — 2027 (Expected)<br>Taoyuan, Taiwan" data-zh="2025/09 — 2027(預計)<br>桃園,台灣">Sep 2025 — 2027 (Expected)<br>Taoyuan, Taiwan</div>
-      <div>
-        <h3 data-en="National Central University" data-zh="國立中央大學">National Central University</h3>
-        <div class="row-sub" data-en="M.S., International Master's Program in Artificial Intelligence" data-zh="人工智慧國際碩士學位學程">M.S., International Master's Program in Artificial Intelligence</div>
-        <ul><li data-en="Concentration: Image Processing and Computer Vision" data-zh="研究方向:影像處理與電腦視覺">Concentration: Image Processing and Computer Vision</li></ul>
+    <div class="timeline">
+      <div class="tl-item">
+        <!-- 校徽:ncu.png,找不到時顯示 NCU -->
+        <div class="tl-logo">
+          <img src="ncu.png" alt="National Central University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NCU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time" data-en="Sep 2025 — 2027 (Expected) <span>· Taoyuan, Taiwan</span>" data-zh="2025/09 — 2027(預計)<span>・桃園,台灣</span>">Sep 2025 — 2027 (Expected) <span>· Taoyuan, Taiwan</span></div>
+          <h3 data-en="National Central University" data-zh="國立中央大學">National Central University</h3>
+          <div class="tl-sub" data-en="M.S., International Master's Program in Artificial Intelligence" data-zh="人工智慧國際碩士學位學程">M.S., International Master's Program in Artificial Intelligence</div>
+          <ul><li data-en="Concentration: Image Processing and Computer Vision" data-zh="研究方向:影像處理與電腦視覺">Concentration: Image Processing and Computer Vision</li></ul>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="row-time" data-en="Sep 2021 — Jun 2025<br>Taitung, Taiwan" data-zh="2021/09 — 2025/06<br>臺東,台灣">Sep 2021 — Jun 2025<br>Taitung, Taiwan</div>
-      <div>
-        <h3 data-en="National Taitung University" data-zh="國立臺東大學">National Taitung University</h3>
-        <div class="row-sub" data-en="B.S., Computer Science and Information Engineering" data-zh="資訊工程學系 學士">B.S., Computer Science and Information Engineering</div>
-        <ul>
-          <li data-en="GPA: 3.76 / 4.00" data-zh="總成績:88.49">GPA: 3.76 / 4.00</li>
-          <li data-en="Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)" data-zh="班排 4/50(前 8%)・系排 13/101(前 13%)">Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)</li>
-        </ul>
+      <div class="tl-item">
+        <!-- 校徽:nttu.png,找不到時顯示 NTTU -->
+        <div class="tl-logo">
+          <img src="nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NTTU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time" data-en="Sep 2021 — Jun 2025 <span>· Taitung, Taiwan</span>" data-zh="2021/09 — 2025/06<span>・臺東,台灣</span>">Sep 2021 — Jun 2025 <span>· Taitung, Taiwan</span></div>
+          <h3 data-en="National Taitung University" data-zh="國立臺東大學">National Taitung University</h3>
+          <div class="tl-sub" data-en="B.S., Computer Science and Information Engineering" data-zh="資訊工程學系 學士">B.S., Computer Science and Information Engineering</div>
+          <ul>
+            <li data-en="GPA: 3.76 / 4.00" data-zh="總成績:88.49">GPA: 3.76 / 4.00</li>
+            <li data-en="Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)" data-zh="班排 4/50(前 8%)・系排 13/101(前 13%)">Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -347,23 +376,34 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
   </div>
 </section>
 
-<!-- ================= 經歷 ================= -->
+<!-- ================= 經歷(時間軸) ================= -->
 <section id="experience">
   <div class="wrap">
     <h2 data-en="Experience &amp; Activities" data-zh="經歷與活動">Experience &amp; Activities</h2>
-    <div class="row">
-      <div class="row-time">2025</div>
-      <div>
-        <h3 data-en="TSMC Advanced Packaging Student Day" data-zh="台積電先進封裝學生日">TSMC Advanced Packaging Student Day</h3>
-        <div class="row-sub" data-en="Taiwan Semiconductor Manufacturing Company" data-zh="台灣積體電路製造股份有限公司">Taiwan Semiconductor Manufacturing Company</div>
-        <p data-en="Participated in the 2025 TSMC Advanced Packaging Student Day." data-zh="參與 2025 台積電先進封裝學生日活動。">Participated in the 2025 TSMC Advanced Packaging Student Day.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <!-- 公司 Logo:tsmc.png,找不到時顯示 TSMC -->
+        <div class="tl-logo">
+          <img src="tsmc.png" alt="TSMC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">TSMC</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time">2025</div>
+          <h3 data-en="TSMC Advanced Packaging Student Day" data-zh="台積電先進封裝學生日">TSMC Advanced Packaging Student Day</h3>
+          <div class="tl-sub" data-en="Taiwan Semiconductor Manufacturing Company" data-zh="台灣積體電路製造股份有限公司">Taiwan Semiconductor Manufacturing Company</div>
+          <p data-en="Participated in the 2025 TSMC Advanced Packaging Student Day." data-zh="參與 2025 台積電先進封裝學生日活動。">Participated in the 2025 TSMC Advanced Packaging Student Day.</p>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="row-time">2024</div>
-      <div>
-        <h3 data-en="Teaching Assistant — Digital System Design" data-zh="課程助教 — 數位系統設計">Teaching Assistant — Digital System Design</h3>
-        <div class="row-sub" data-en="National Taitung University, Dept. of CSIE" data-zh="國立臺東大學 資訊工程學系">National Taitung University, Dept. of CSIE</div>
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NTTU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time">2024</div>
+          <h3 data-en="Teaching Assistant — Digital System Design" data-zh="課程助教 — 數位系統設計">Teaching Assistant — Digital System Design</h3>
+          <div class="tl-sub" data-en="National Taitung University, Dept. of CSIE" data-zh="國立臺東大學 資訊工程學系">National Taitung University, Dept. of CSIE</div>
+        </div>
       </div>
     </div>
   </div>
@@ -417,7 +457,7 @@ function toggleLang(){
 // Lightbox
 function openLb(src, el){
   var img = el.querySelector('img');
-  if(!img || !img.complete || img.naturalWidth===0) return; // 圖片不存在時不開啟
+  if(!img || !img.complete || img.naturalWidth===0) return;
   document.getElementById('lbImg').src = src;
   var cap = el.parentElement.querySelector('.g-cap');
   document.getElementById('lbCap').textContent = cap ? cap.textContent : '';
