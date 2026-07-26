@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yi-Cheng Wang | Portfolio</title>
-     
+<!-- ============================================
+     圖片檔案統一放在 img/ 資料夾內:
+     頭像:img/myphoto.png
+     Logo:img/ncu.png(中央大學校徽)、nttu.png(臺東大學校徽)、tsmc.png(台積電)
+          找不到圖片時會自動顯示縮寫文字,不會破版
+     活動照:icpc.jpg / twsc2.jpg / com.jpg
+     證書:ICPC_cer.png / TOPC.png / twsc2_cer.png
+     專案圖:digital2.png / linebot.png / web.png / dct.png / table.png
+     ============================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -194,7 +202,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
       <div class="tl-item">
         <!-- 校徽:ncu.png,找不到時顯示 NCU -->
         <div class="tl-logo">
-          <img src="ncu.png" alt="National Central University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <img src="img/ncu.png" alt="National Central University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <span class="tl-fallback">NCU</span>
         </div>
         <div class="tl-content">
@@ -207,7 +215,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
       <div class="tl-item">
         <!-- 校徽:nttu.png,找不到時顯示 NTTU -->
         <div class="tl-logo">
-          <img src="nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <img src="img/nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <span class="tl-fallback">NTTU</span>
         </div>
         <div class="tl-content">
@@ -273,15 +281,15 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     <div class="gallery-label" data-en="Gallery" data-zh="活動照片">Gallery</div>
     <div class="gallery">
       <div>
-        <div class="g-item" onclick="openLb('icpc.jpg', this)"><img src="icpc.jpg" alt="ICPC Taichung Regional"></div>
+        <div class="g-item" onclick="openLb('img/icpc.jpg', this)"><img src="img/icpc.jpg" alt="ICPC Taichung Regional"></div>
         <div class="g-cap" data-en="ICPC Taichung Regional — team photo" data-zh="ICPC 台中區域賽 — 團隊合照">ICPC Taichung Regional — team photo</div>
       </div>
       <div>
-        <div class="g-item" onclick="openLb('twsc2.jpg', this)"><img src="twsc2.jpg" alt="TWSC2 Poster Presentation"></div>
+        <div class="g-item" onclick="openLb('img/twsc2.jpg', this)"><img src="img/twsc2.jpg" alt="TWSC2 Poster Presentation"></div>
         <div class="g-cap" data-en="TWSC2 poster presentation" data-zh="台灣雲端運算與服務研討會 海報發表">TWSC2 poster presentation</div>
       </div>
       <div>
-        <div class="g-item" onclick="openLb('com.jpg', this)"><img src="com.jpg" alt="Mobile Communication Practical Contest"></div>
+        <div class="g-item" onclick="openLb('img/com.jpg', this)"><img src="img/com.jpg" alt="Mobile Communication Practical Contest"></div>
         <div class="g-cap" data-en="Mobile Communication Practical Contest" data-zh="行動通訊實務競賽">Mobile Communication Practical Contest</div>
       </div>
     </div>
@@ -289,15 +297,15 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     <div class="gallery-label" data-en="Certificates" data-zh="證書">Certificates</div>
     <div class="gallery">
       <div>
-        <div class="g-item" onclick="openLb('ICPC_cer.png', this)"><img src="ICPC_cer.png" alt="ICPC Certificate"></div>
+        <div class="g-item" onclick="openLb('img/ICPC_cer.png', this)"><img src="img/ICPC_cer.png" alt="ICPC Certificate"></div>
         <div class="g-cap">ICPC · 2024</div>
       </div>
       <div>
-        <div class="g-item" onclick="openLb('TOPC.png', this)"><img src="TOPC.png" alt="TOPC Certificate"></div>
+        <div class="g-item" onclick="openLb('img/TOPC.png', this)"><img src="img/TOPC.png" alt="TOPC Certificate"></div>
         <div class="g-cap">TOPC · 2024</div>
       </div>
       <div>
-        <div class="g-item" onclick="openLb('twsc2_cer.png', this)"><img src="twsc2_cer.png" alt="TWSC2 Certificate"></div>
+        <div class="g-item" onclick="openLb('img/twsc2_cer.png', this)"><img src="img/twsc2_cer.png" alt="TWSC2 Certificate"></div>
         <div class="g-cap">TWSC2 · 2024</div>
       </div>
     </div>
@@ -310,7 +318,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     <h2 data-en="Projects" data-zh="研究專案">Projects</h2>
 
     <div class="project">
-      <div class="p-thumb"><img src="digital2.png" alt="Digital Twin VR"></div>
+      <div class="p-thumb"><img src="img/digital2.png" alt="Digital Twin VR"></div>
       <div>
         <span class="p-badge" data-en="Graduation Project" data-zh="畢業專題">Graduation Project</span>
         <h3 data-en="Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education" data-zh="應用虛擬實境數位雙生技術於機車道路安全教育輔助學習">Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education</h3>
@@ -322,7 +330,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     </div>
 
     <div class="project">
-      <div class="p-thumb"><img src="linebot.png" alt="LINE Bot Assistant"></div>
+      <div class="p-thumb"><img src="img/linebot.png" alt="LINE Bot Assistant"></div>
       <div>
         <h3>LINE Bot Assistant</h3>
         <p data-en="Built a LINE Bot combining YOLOv8 object detection with IoT sensors to monitor stray dogs on campus and alert cycling students in real time. Also provides weather forecasts and earthquake information for safe commuting."
@@ -333,7 +341,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     </div>
 
     <div class="project">
-      <div class="p-thumb"><img src="web.png" alt="Course Registration System"></div>
+      <div class="p-thumb"><img src="img/web.png" alt="Course Registration System"></div>
       <div>
         <h3 data-en="NTTU CSIE Course Registration System" data-zh="臺東大學資工系選課系統">NTTU CSIE Course Registration System</h3>
         <p data-en="A course enrollment system developed with PHP and MySQL, providing course searching, student registration, and personal schedules, along with a simple discussion forum and a course popularity ranking system."
@@ -344,7 +352,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     </div>
 
     <div class="project">
-      <div class="p-thumb"><img src="dct.png" alt="DCT Preprocessing"></div>
+      <div class="p-thumb"><img src="img/dct.png" alt="DCT Preprocessing"></div>
       <div>
         <h3 data-en="DCT Image Compression Preprocessing" data-zh="DCT 影像壓縮預處理方法">DCT Image Compression Preprocessing</h3>
         <p data-en="Implemented a selective preprocessing method based on Oizumi's paper (IEEE 2006) to reduce ringing artifacts in DCT-based image compression. Introduced an adaptive threshold optimization that dynamically adjusts filtering based on image variance, achieving improved SSIM and texture preservation over the fixed-threshold baseline."
@@ -355,7 +363,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
     </div>
 
     <div class="project">
-      <div class="p-thumb"><img src="table.png" alt="Table Tennis Match Prediction"></div>
+      <div class="p-thumb"><img src="img/table.png" alt="Table Tennis Match Prediction"></div>
       <div>
         <span class="p-badge">Kaggle</span>
         <h3 data-en="Table Tennis Match Prediction" data-zh="桌球比賽預測模型">Table Tennis Match Prediction</h3>
@@ -376,7 +384,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
       <div class="tl-item">
         <!-- 公司 Logo:tsmc.png,找不到時顯示 TSMC -->
         <div class="tl-logo">
-          <img src="tsmc.png" alt="TSMC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <img src="img/tsmc.png" alt="TSMC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <span class="tl-fallback">TSMC</span>
         </div>
         <div class="tl-content">
@@ -388,7 +396,7 @@ footer{border-top:1px solid var(--line);padding:32px 24px;text-align:center;font
       </div>
       <div class="tl-item">
         <div class="tl-logo">
-          <img src="nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <img src="img/nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <span class="tl-fallback">NTTU</span>
         </div>
         <div class="tl-content">
