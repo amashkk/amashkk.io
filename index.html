@@ -382,6 +382,10 @@ footer{border-top:1px solid var(--line);padding:34px 24px;text-align:center;font
     </div>
     <div class="gallery">
       <div>
+        <button type="button" class="g-item" onclick="openLb('img/intern.jpg', this)"><img src="img/intern.jpg" alt="TSMC Summer Internship" loading="lazy"></button>
+        <div class="g-cap" data-en="TSMC Summer Internship" data-zh="台積電暑期實習">TSMC Summer Internship</div>
+      </div>
+      <div>
         <button type="button" class="g-item" onclick="openLb('img/icpc.jpg', this)"><img src="img/icpc.jpg" alt="ICPC Taichung Regional" loading="lazy"></button>
         <div class="g-cap" data-en="ICPC Taichung Regional — team photo" data-zh="ICPC 台中區域賽 — 團隊合照">ICPC Taichung Regional — team photo</div>
       </div>
@@ -604,3 +608,610 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb
 
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yi-Cheng Wang | Portfolio</title>
+<meta name="description" content="Yi-Cheng Wang — M.S. student at National Central University, working on image processing and computer vision.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light only">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --surface:#FAFAFB;
+  --ink:#0F1419;
+  --gray:#6B7280;
+  --body:#3C4149;
+  --light:#F4F5F7;
+  --line:#E8EAED;
+  --line-strong:#D8DCE1;
+  --accent:#2563EB;
+  --accent-soft:rgba(37,99,235,.08);
+  --logo-bg:#FFFFFF;
+  --nav-bg:rgba(255,255,255,.86);
+  --sans:'Inter','Noto Sans TC',sans-serif;
+  --nav-h:58px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--ink);color:var(--bg)}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:800px;margin:0 auto;padding:0 24px}
+
+/* ---------- 導覽列 ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:800px;margin:0 auto;padding:0 24px;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-weight:700;font-size:15px;letter-spacing:-.015em;flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:18px;min-width:0}
+.nav-links{display:flex;gap:18px;list-style:none;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{position:relative;display:block;font-size:14px;color:var(--gray);white-space:nowrap;padding:2px 0;transition:color .15s}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--ink);font-weight:600}
+.nav-links a.on::after{transform:scaleX(1)}
+.lang-toggle{background:none;border:1px solid var(--line-strong);color:var(--gray);padding:4px 13px;border-radius:99px;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:600;flex-shrink:0;transition:.15s}
+.lang-toggle:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ---------- Hero ---------- */
+.hero{padding:calc(var(--nav-h) + 76px) 0 72px}
+.hero-top{display:flex;align-items:center;gap:30px;margin-bottom:30px}
+.avatar,.avatar-ph{width:112px;height:112px;border-radius:50%;flex-shrink:0}
+.avatar{object-fit:cover;background:var(--light)}
+.avatar-ph{background:var(--light);display:none;align-items:center;justify-content:center;color:var(--gray)}
+.hero h1{font-size:clamp(31px,5.2vw,42px);font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.hero .sub{font-size:15.5px;color:var(--gray);margin-top:8px;line-height:1.6}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--body);background:var(--light);border-radius:99px;padding:4px 12px 4px 10px;margin-top:14px}
+.status i{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.hero-desc{color:var(--body);max-width:68ch;font-size:15.5px}
+.hero-links{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.hero-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--body);border:1px solid var(--line);border-radius:99px;padding:7px 15px;transition:.15s}
+.hero-links a svg{width:16px;height:16px;flex-shrink:0;color:var(--gray);transition:.15s}
+.hero-links a:hover{border-color:var(--ink);color:var(--ink)}
+.hero-links a:hover svg{color:var(--ink)}
+
+/* ---------- 共用 ---------- */
+section{padding:64px 0;border-top:1px solid var(--line);scroll-margin-top:var(--nav-h)}
+h2{font-size:21px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-bottom:34px}
+h3{font-size:16.5px;font-weight:600;letter-spacing:-.01em;line-height:1.45}
+
+/* ---------- 時間軸(學歷 / 經歷共用) ---------- */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:36px;top:14px;bottom:14px;width:1.5px;background:var(--line)}
+.tl-item{position:relative;display:grid;grid-template-columns:72px 1fr;gap:28px;padding-bottom:42px}
+.tl-item:last-child{padding-bottom:0}
+.tl-logo{width:72px;height:72px;background:var(--logo-bg);border:1px solid var(--line);border-radius:14px;padding:9px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;flex-shrink:0}
+.tl-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.tl-logo .tl-fallback{display:none;font-size:12.5px;font-weight:700;color:#5A6270;letter-spacing:.02em}
+.tl-content{padding-top:4px;min-width:0}
+.tl-time{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:3px;letter-spacing:.01em}
+.tl-time span{color:var(--gray);font-weight:400}
+.tl-sub{font-size:14px;color:var(--gray);margin-top:2px}
+.tl-content p,.tl-content li{font-size:15px;color:var(--body)}
+.tl-content p{margin-top:8px}
+.tl-content ul{list-style:none;margin-top:8px;display:grid;gap:3px}
+.tl-content li{padding-left:17px;position:relative}
+.tl-content li::before{content:'';position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--line-strong)}
+
+/* ---------- 榮譽 ---------- */
+.honors{display:grid;gap:0}
+.honor{display:grid;grid-template-columns:76px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.honor:first-child{padding-top:0}
+.honor:last-child{border-bottom:none;padding-bottom:0}
+.honor-year{font-size:13.5px;font-weight:600;color:var(--gray);font-variant-numeric:tabular-nums}
+.honor h3 a{background-image:linear-gradient(var(--line-strong),var(--line-strong));background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat;transition:.15s}
+.honor h3 a:hover{color:var(--accent);background-image:linear-gradient(var(--accent),var(--accent))}
+.honor p{font-size:14.5px;color:var(--body);margin-top:3px}
+
+/* ---------- 相簿 / 證書 ---------- */
+.gallery-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:44px 0 16px}
+.gallery-label{font-size:14.5px;font-weight:600;color:var(--ink)}
+.gallery-nav{display:flex;gap:8px}
+.gnav{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);background:var(--bg);color:var(--body);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+.gnav svg{width:15px;height:15px}
+.gnav:hover:not(:disabled){border-color:var(--ink);color:var(--ink)}
+.gnav:disabled{opacity:.32;cursor:default}
+.gallery{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 28px)/3);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+.gallery::-webkit-scrollbar{display:none}
+.gallery>*{scroll-snap-align:start;min-width:0}
+.g-item{border-radius:10px;overflow:hidden;background:var(--light);border:1px solid var(--line);cursor:zoom-in;aspect-ratio:4/3;display:block;width:100%;padding:0}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.g-item:hover img{transform:scale(1.045)}
+.g-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.5}
+
+/* ---------- 專案 ---------- */
+.projects{display:grid;gap:14px}
+.project{display:grid;grid-template-columns:212px 1fr;gap:26px;align-items:start;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .18s}
+.project:hover{border-color:var(--line-strong)}
+.p-thumb{aspect-ratio:16/10;background:var(--light);border-radius:9px;overflow:hidden;border:1px solid var(--line)}
+.p-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.p-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 10px;border-radius:99px;margin-bottom:7px}
+.project h3{margin-bottom:7px}
+.project p{font-size:14.5px;color:var(--body)}
+.p-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.p-tags span{font-size:12.5px;color:var(--gray);background:var(--bg);border:1px solid var(--line);padding:2px 10px;border-radius:99px}
+.p-link{display:inline-block;font-size:13.5px;font-weight:600;color:var(--accent);margin-top:14px;border-bottom:1px solid transparent;transition:.15s}
+.p-link:hover{border-color:var(--accent)}
+
+/* ---------- 技能 ---------- */
+.skill-row{display:grid;grid-template-columns:180px 1fr;gap:22px;padding:14px 0;border-bottom:1px solid var(--line)}
+.skill-row:first-child{padding-top:0}
+.skill-row:last-child{border-bottom:none;padding-bottom:0}
+.skill-row b{font-size:14.5px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:13.5px;color:var(--body);background:var(--light);padding:3px 12px;border-radius:99px}
+
+/* ---------- 聯絡 ---------- */
+.contact p.lead{color:var(--body);margin-bottom:26px;max-width:60ch}
+.contact-list{display:grid;gap:2px}
+.contact-list a{display:flex;align-items:center;gap:13px;color:var(--body);font-size:15px;padding:11px 12px;margin:0 -12px;border-radius:9px;transition:.15s}
+.contact-list a:hover{color:var(--accent);background:var(--light)}
+.contact-list a svg{width:17px;height:17px;flex-shrink:0;color:var(--gray);transition:.15s}
+.contact-list a:hover svg{color:var(--accent)}
+.contact-list b{display:inline-block;width:84px;font-weight:600;color:var(--ink);flex-shrink:0}
+
+footer{border-top:1px solid var(--line);padding:34px 24px;text-align:center;font-size:13px;color:var(--gray)}
+
+/* ---------- Lightbox ---------- */
+.lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:82vh;border-radius:10px;object-fit:contain}
+.lb-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#fff;font-size:14.5px;padding:0 24px}
+.lb-x{position:absolute;top:14px;right:20px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;opacity:.75;line-height:1;padding:6px}
+.lb-x:hover{opacity:1}
+
+/* ---------- RWD ---------- */
+@media (max-width:680px){
+  body{font-size:15.5px}
+  .hero{padding:calc(var(--nav-h) + 48px) 0 52px}
+  .hero-top{flex-direction:column;align-items:flex-start;gap:18px}
+  .avatar,.avatar-ph{width:92px;height:92px}
+  section{padding:48px 0}
+  h2{margin-bottom:28px}
+  .timeline::before{left:26px}
+  .tl-item{grid-template-columns:52px 1fr;gap:16px;padding-bottom:34px}
+  .tl-logo{width:52px;height:52px;border-radius:11px;padding:6px}
+  .honor{grid-template-columns:60px 1fr;gap:12px}
+  .project{grid-template-columns:1fr;gap:16px;padding:16px}
+  .p-thumb{aspect-ratio:16/9}
+  .skill-row{grid-template-columns:1fr;gap:10px}
+  .gallery{grid-auto-columns:calc((100% - 10px)/2);gap:10px}
+  .gallery-head{margin:34px 0 14px}
+  .contact-list b{width:74px}
+  .nav-right{gap:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .gallery{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">Yi-Cheng Wang</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#education" data-en="Education" data-zh="學歷">Education</a></li>
+        <li><a href="#experience" data-en="Experience" data-zh="經歷">Experience</a></li>
+        <li><a href="#honors" data-en="Honors" data-zh="榮譽">Honors</a></li>
+        <li><a href="#projects" data-en="Projects" data-zh="專案">Projects</a></li>
+        <li><a href="#skills" data-en="Skills" data-zh="技能">Skills</a></li>
+        <li><a href="#contact" data-en="Contact" data-zh="聯絡">Contact</a></li>
+      </ul>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language" onclick="toggleLang()">中文</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= Hero ================= -->
+<header class="hero wrap" id="top">
+  <div class="hero-top">
+    <img class="avatar" src="img/myphoto.png" alt="Yi-Cheng Wang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="avatar-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div>
+    <div>
+      <h1 data-en="Yi-Cheng Wang" data-zh="王翊丞">Yi-Cheng Wang</h1>
+      <p class="sub" data-en="M.S. Student @ National Central University · Image Processing &amp; Computer Vision"
+         data-zh="國立中央大學 碩士生・影像處理與電腦視覺">M.S. Student @ National Central University · Image Processing &amp; Computer Vision</p>
+      <div class="status"><i></i><span data-en="Open to Opportunities" data-zh="開放合作與職涯機會">Open to Opportunities</span></div>
+    </div>
+  </div>
+  <p class="hero-desc"
+     data-en='A Master&#39;s student in the International AI Program at National Central University, specializing in Image Processing and Computer Vision. I graduated from National Taitung University, Dept. of Computer Science and Information Engineering (Top 13%), receiving the Academic Excellence Award and Taipower Scholarship. As team leader, my graduation project "Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education" won the department&#39;s Distinction Award. I also competed in the 2024 ICPC Taichung Regional.'
+     data-zh='目前就讀於國立中央大學人工智慧國際碩士學位學程,研究領域為影像處理與電腦視覺。大學畢業於國立臺東大學資訊工程學系(系排前 13%),曾獲系上書卷獎與台電獎學金。擔任畢業專題組長,以「應用虛擬實境數位雙生技術於機車道路安全教育輔助學習」榮獲系上優等獎,並參與 2024 ICPC 台中區域賽。'>A Master's student in the International AI Program at National Central University, specializing in Image Processing and Computer Vision. I graduated from National Taitung University, Dept. of Computer Science and Information Engineering (Top 13%), receiving the Academic Excellence Award and Taipower Scholarship. As team leader, my graduation project "Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education" won the department's Distinction Award. I also competed in the 2024 ICPC Taichung Regional.</p>
+  <div class="hero-links">
+    <a href="mailto:amash0315@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span>Email</span>
+    </a>
+    <a href="https://github.com/amashkk" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      <span>GitHub</span>
+    </a>
+    <a href="https://linkedin.com/in/yi-cheng-wang0315" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      <span>LinkedIn</span>
+    </a>
+  </div>
+</header>
+
+<!-- ================= 學歷 ================= -->
+<section id="education">
+  <div class="wrap">
+    <h2 data-en="Education" data-zh="學歷">Education</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="img/ncu.jpg" alt="National Central University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NCU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time" data-en="Sep 2025 — 2027 (Expected) <span>· Taoyuan, Taiwan</span>" data-zh="2025/09 — 2027(預計)<span>・桃園,台灣</span>">Sep 2025 — 2027 (Expected) <span>· Taoyuan, Taiwan</span></div>
+          <h3 data-en="National Central University" data-zh="國立中央大學">National Central University</h3>
+          <div class="tl-sub" data-en="M.S., International Master's Program in Artificial Intelligence" data-zh="人工智慧國際碩士學位學程">M.S., International Master's Program in Artificial Intelligence</div>
+          <ul><li data-en="Concentration: Image Processing and Computer Vision" data-zh="研究方向:影像處理與電腦視覺">Concentration: Image Processing and Computer Vision</li></ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="img/nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NTTU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time" data-en="Sep 2021 — Jun 2025 <span>· Taitung, Taiwan</span>" data-zh="2021/09 — 2025/06<span>・臺東,台灣</span>">Sep 2021 — Jun 2025 <span>· Taitung, Taiwan</span></div>
+          <h3 data-en="National Taitung University" data-zh="國立臺東大學">National Taitung University</h3>
+          <div class="tl-sub" data-en="B.S., Computer Science and Information Engineering" data-zh="資訊工程學系 學士">B.S., Computer Science and Information Engineering</div>
+          <ul>
+            <li data-en="GPA: 3.76 / 4.00" data-zh="總成績:88.49">GPA: 3.76 / 4.00</li>
+            <li data-en="Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)" data-zh="班排 4/50(前 8%)・系排 13/101(前 13%)">Class Rank 4/50 (Top 8%) · Dept. Rank 13/101 (Top 13%)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 經歷 ================= -->
+<section id="experience">
+  <div class="wrap">
+    <h2 data-en="Experience &amp; Activities" data-zh="經歷與活動">Experience &amp; Activities</h2>
+    <div class="timeline">
+
+      <!-- ▼▼▼ 新增:台積電暑期實習(請把 ✏️ 標記處換成你的實際內容) ▼▼▼ -->
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="img/tsmc.png" alt="TSMC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">TSMC</span>
+        </div>
+        <div class="tl-content">
+          <!-- ✏️ 起訖月份 / 地點 -->
+          <div class="tl-time" data-en="Jul — Aug 2026 <span>· Hsinchu, Taiwan</span>" data-zh="2026/07 — 2026/08<span>・新竹,台灣</span>">Jul — Aug 2026 <span>· Hsinchu, Taiwan</span></div>
+          <!-- ✏️ 職稱 -->
+          <h3 data-en="Summer Intern" data-zh="暑期實習生">Summer Intern</h3>
+          <!-- ✏️ 部門 -->
+          <div class="tl-sub" data-en="Taiwan Semiconductor Manufacturing Company (TSMC)" data-zh="台灣積體電路製造股份有限公司(台積電)">Taiwan Semiconductor Manufacturing Company (TSMC)</div>
+        </div>
+      </div>
+      <!-- ▲▲▲ 新增結束 ▲▲▲ -->
+
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="img/tsmc.png" alt="TSMC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">TSMC</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time">2025</div>
+          <h3 data-en="TSMC Advanced Packaging Student Day" data-zh="台積電先進封裝學生日">TSMC Advanced Packaging Student Day</h3>
+          <div class="tl-sub" data-en="Taiwan Semiconductor Manufacturing Company" data-zh="台灣積體電路製造股份有限公司">Taiwan Semiconductor Manufacturing Company</div>
+          <p data-en="Participated in the 2025 TSMC Advanced Packaging Student Day." data-zh="參與 2025 台積電先進封裝學生日活動。">Participated in the 2025 TSMC Advanced Packaging Student Day.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-logo">
+          <img src="img/nttu.png" alt="National Taitung University" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tl-fallback">NTTU</span>
+        </div>
+        <div class="tl-content">
+          <div class="tl-time">2024</div>
+          <h3 data-en="Teaching Assistant — Digital System Design" data-zh="課程助教 — 數位系統設計">Teaching Assistant — Digital System Design</h3>
+          <div class="tl-sub" data-en="National Taitung University, Dept. of CSIE" data-zh="國立臺東大學 資訊工程學系">National Taitung University, Dept. of CSIE</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 榮譽 ================= -->
+<section id="honors">
+  <div class="wrap">
+    <h2 data-en="Honors &amp; Awards" data-zh="榮譽與獎項">Honors &amp; Awards</h2>
+    <div class="honors">
+      <div class="honor">
+        <div class="honor-year">2024</div>
+        <div>
+          <h3><a href="https://icpc.global/regionals/finder/Taipei-2025" target="_blank" rel="noopener" data-en="ICPC Taichung Regional" data-zh="ICPC 台中區域賽">ICPC Taichung Regional</a></h3>
+          <p data-en="Qualified for the ICPC Asia Taichung Regional Contest through the Taiwan Online Programming Contest (TOPC)." data-zh="透過 TOPC 台灣線上程式競賽,晉級 ICPC 亞洲區台中站區域賽。">Qualified for the ICPC Asia Taichung Regional Contest through the Taiwan Online Programming Contest (TOPC).</p>
+        </div>
+      </div>
+      <div class="honor">
+        <div class="honor-year">2024</div>
+        <div>
+          <h3><a href="https://proj.moe.edu.tw/B5GMOE/cp.aspx?n=5749" target="_blank" rel="noopener" data-en="Mobile Communication Practical Contest — Finalist" data-zh="行動通訊實務競賽 — 決賽入選">Mobile Communication Practical Contest — Finalist</a></h3>
+          <p data-en="Selected as a finalist in the Smart Digital Applications category." data-zh="入選「智慧數位應用」類別決賽。">Selected as a finalist in the Smart Digital Applications category.</p>
+        </div>
+      </div>
+      <div class="honor">
+        <div class="honor-year">2024</div>
+        <div>
+          <h3><a href="https://sites.google.com/view/twsc2-2024/" target="_blank" rel="noopener" data-en="TWSC2 Symposium — Poster Presentation" data-zh="台灣雲端運算與服務研討會 — 海報發表">TWSC2 Symposium — Poster Presentation</a></h3>
+          <p data-en="Presented graduation project at Taiwan Symposium on Cloud and Services Computing." data-zh="於台灣雲端運算與服務研討會進行畢業專題海報發表。">Presented graduation project at Taiwan Symposium on Cloud and Services Computing.</p>
+        </div>
+      </div>
+      <div class="honor">
+        <div class="honor-year">2024</div>
+        <div>
+          <h3 data-en="Graduation Project — Distinction Award" data-zh="畢業專題 — 優等獎">Graduation Project — Distinction Award</h3>
+          <p data-en="Awarded Distinction for graduation project." data-zh="畢業專題榮獲優等獎。">Awarded Distinction for graduation project.</p>
+        </div>
+      </div>
+      <div class="honor">
+        <div class="honor-year">2023</div>
+        <div>
+          <h3 data-en="Academic Excellence Award" data-zh="書卷獎">Academic Excellence Award</h3>
+          <p data-en="Ranked 3rd in class." data-zh="班上位列第三名。">Ranked 3rd in class.</p>
+        </div>
+      </div>
+      <div class="honor">
+        <div class="honor-year">2022–23</div>
+        <div>
+          <h3 data-en="Taipower Scholarship" data-zh="台電促進電力發展營運協助獎學金">Taipower Scholarship</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-head">
+      <div class="gallery-label" data-en="Gallery" data-zh="活動照片">Gallery</div>
+      <div class="gallery-nav">
+        <button class="gnav" type="button" data-dir="-1" aria-label="Previous photos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="gnav" type="button" data-dir="1" aria-label="Next photos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="gallery">
+      <div>
+        <button type="button" class="g-item" onclick="openLb('img/icpc.jpg', this)"><img src="img/icpc.jpg" alt="ICPC Taichung Regional" loading="lazy"></button>
+        <div class="g-cap" data-en="ICPC Taichung Regional — team photo" data-zh="ICPC 台中區域賽 — 團隊合照">ICPC Taichung Regional — team photo</div>
+      </div>
+      <div>
+        <button type="button" class="g-item" onclick="openLb('img/twsc2.jpg', this)"><img src="img/twsc2.jpg" alt="TWSC2 Poster Presentation" loading="lazy"></button>
+        <div class="g-cap" data-en="TWSC2 poster presentation" data-zh="台灣雲端運算與服務研討會 海報發表">TWSC2 poster presentation</div>
+      </div>
+      <div>
+        <button type="button" class="g-item" onclick="openLb('img/com.jpg', this)"><img src="img/com.jpg" alt="Mobile Communication Practical Contest" loading="lazy"></button>
+        <div class="g-cap" data-en="Mobile Communication Practical Contest" data-zh="行動通訊實務競賽">Mobile Communication Practical Contest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 專案 ================= -->
+<section id="projects">
+  <div class="wrap">
+    <h2 data-en="Projects" data-zh="研究專案">Projects</h2>
+    <div class="projects">
+
+      <div class="project">
+        <div class="p-thumb"><img src="img/digital2.png" alt="Digital Twin VR" loading="lazy"></div>
+        <div>
+          <span class="p-badge" data-en="Graduation Project" data-zh="畢業專題">Graduation Project</span>
+          <h3 data-en="Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education" data-zh="應用虛擬實境數位雙生技術於機車道路安全教育輔助學習">Applying Digital Twin and Virtual Reality Technology in Motorcycle Road Safety Education</h3>
+          <p data-en="Led a team to build a bidirectional communication system between Unity and Arduino, synchronizing a physical self-balancing vehicle with a virtual counterpart. Designed a 3D-printed self-balancing car, optimized Unity motorcycle physics, and applied visual tunnel effects with AI Navigation for immersive VR safety training."
+             data-zh="帶領團隊建立 Unity 與 Arduino 之間的雙向通訊系統,實現實體自平衡車與虛擬機車軌跡的即時同步。設計 3D 列印自平衡車、優化 Unity 機車物理引擎,並運用視覺隧道效應與 AI Navigation 打造沉浸式 VR 安全訓練體驗。">Led a team to build a bidirectional communication system between Unity and Arduino, synchronizing a physical self-balancing vehicle with a virtual counterpart. Designed a 3D-printed self-balancing car, optimized Unity motorcycle physics, and applied visual tunnel effects with AI Navigation for immersive VR safety training.</p>
+          <div class="p-tags"><span>Unity</span><span>Arduino</span><span>C#</span><span>VR</span><span>3D Printing</span></div>
+          <a class="p-link" href="https://youtu.be/bQBDCyrBLKM" target="_blank" rel="noopener">Demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="p-thumb"><img src="img/linebot.png" alt="LINE Bot Assistant" loading="lazy"></div>
+        <div>
+          <h3>LINE Bot Assistant</h3>
+          <p data-en="Built a LINE Bot combining YOLOv8 object detection with IoT sensors to monitor stray dogs on campus and alert cycling students in real time. Also provides weather forecasts and earthquake information for safe commuting."
+             data-zh="結合 YOLOv8 影像辨識與物聯網感測器,開發 LINE Bot 即時監測校園流浪狗並向騎車學生發送警示提示。同時提供天氣預報與地震資訊,確保通勤安全。">Built a LINE Bot combining YOLOv8 object detection with IoT sensors to monitor stray dogs on campus and alert cycling students in real time. Also provides weather forecasts and earthquake information for safe commuting.</p>
+          <div class="p-tags"><span>Python</span><span>YOLOv8</span><span>LINE API</span><span>Arduino</span><span>Flask</span><span>Node-RED</span></div>
+          <a class="p-link" href="https://www.canva.com/design/DAGPtW4d9b0/NSJuL3SWGxyBbabXPTn3cg/view?utm_content=DAGPtW4d9b0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdc6c54a041" target="_blank" rel="noopener">Demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="p-thumb"><img src="img/web.png" alt="Course Registration System" loading="lazy"></div>
+        <div>
+          <h3 data-en="NTTU CSIE Course Registration System" data-zh="臺東大學資工系選課系統">NTTU CSIE Course Registration System</h3>
+          <p data-en="A course enrollment system developed with PHP and MySQL, providing course searching, student registration, and personal schedules, along with a simple discussion forum and a course popularity ranking system."
+             data-zh="採用 PHP 搭配 MySQL 開發的選課系統,提供課程檢索、學生選課、個人課表等功能,並包含簡易討論平台與課程熱門排行。">A course enrollment system developed with PHP and MySQL, providing course searching, student registration, and personal schedules, along with a simple discussion forum and a course popularity ranking system.</p>
+          <div class="p-tags"><span>HTML</span><span>phpMyAdmin</span><span>MySQL</span></div>
+          <a class="p-link" href="https://youtu.be/EwDfzpl3kmc" target="_blank" rel="noopener">Demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="p-thumb"><img src="img/dct.png" alt="DCT Preprocessing" loading="lazy"></div>
+        <div>
+          <h3 data-en="DCT Image Compression Preprocessing" data-zh="DCT 影像壓縮預處理方法">DCT Image Compression Preprocessing</h3>
+          <p data-en="Implemented a selective preprocessing method based on Oizumi's paper (IEEE 2006) to reduce ringing artifacts in DCT-based image compression. Introduced an adaptive threshold optimization that dynamically adjusts filtering based on image variance, achieving improved SSIM and texture preservation over the fixed-threshold baseline."
+             data-zh="基於 Oizumi 論文(IEEE 2006)實作選擇性預處理方法,減少 DCT 影像壓縮中的振鈴失真。新增自適應閾值優化機制,根據影像變異數動態調整濾波閾值,在 SSIM 與紋理保留上優於固定閾值基準方法。">Implemented a selective preprocessing method based on Oizumi's paper (IEEE 2006) to reduce ringing artifacts in DCT-based image compression. Introduced an adaptive threshold optimization that dynamically adjusts filtering based on image variance, achieving improved SSIM and texture preservation over the fixed-threshold baseline.</p>
+          <div class="p-tags"><span>Python</span><span>NumPy</span><span>SciPy</span><span>Image Processing</span></div>
+          <a class="p-link" href="https://github.com/amashkk/dct-preprocessing.git" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="p-thumb"><img src="img/table.png" alt="Table Tennis Match Prediction" loading="lazy"></div>
+        <div>
+          <span class="p-badge">Kaggle</span>
+          <h3 data-en="Table Tennis Match Prediction" data-zh="桌球比賽預測模型">Table Tennis Match Prediction</h3>
+          <p data-en="Using LSTM with Multi-Head Attention to predict next-shot actions, landing points, and scoring outcomes in table tennis matches."
+             data-zh="使用 LSTM 結合 Multi-Head Attention 預測桌球比賽中的下一拍動作、落點位置及得分結果。">Using LSTM with Multi-Head Attention to predict next-shot actions, landing points, and scoring outcomes in table tennis matches.</p>
+          <div class="p-tags"><span>Python</span><span>PyTorch</span><span>Deep Learning</span></div>
+          <a class="p-link" href="https://github.com/amashkk/Introduction-to-Data-Science-Competition-TTMATCH.git" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 技能 ================= -->
+<section id="skills">
+  <div class="wrap">
+    <h2 data-en="Skills" data-zh="技能">Skills</h2>
+    <div class="skill-row">
+      <b data-en="Programming" data-zh="程式語言">Programming</b>
+      <div class="chips"><span>Python</span><span>C++</span><span>C#</span></div>
+    </div>
+    <div class="skill-row">
+      <b data-en="Developer Tools" data-zh="開發工具">Developer Tools</b>
+      <div class="chips"><span>Anaconda</span><span>VS Code</span><span>Jupyter Notebook</span></div>
+    </div>
+    <div class="skill-row">
+      <b data-en="Languages" data-zh="語言能力">Languages</b>
+      <div class="chips"><span data-en="Chinese (Native)" data-zh="中文(母語)">Chinese (Native)</span><span data-en="English (TOEIC 765)" data-zh="英文(TOEIC 765)">English (TOEIC 765)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 聯絡 ================= -->
+<section id="contact">
+  <div class="wrap contact">
+    <h2 data-en="Contact" data-zh="聯絡方式">Contact</h2>
+    <p class="lead" data-en="Feel free to reach out for research or collaboration opportunities." data-zh="如果你對我的研究有興趣,或有合作機會,歡迎與我聯繫。">Feel free to reach out for research or collaboration opportunities.</p>
+    <div class="contact-list">
+      <a href="mailto:amash0315@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <b>Email</b>amash0315@gmail.com
+      </a>
+      <a href="https://github.com/amashkk" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <b>GitHub</b>amashkk
+      </a>
+      <a href="https://linkedin.com/in/yi-cheng-wang0315" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        <b>LinkedIn</b>yi-cheng-wang0315
+      </a>
+      <a href="tel:0909203156">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <b data-en="Phone" data-zh="電話">Phone</b>0909-203-156
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><span data-en="© 2026 Yi-Cheng Wang" data-zh="© 2026 王翊丞">© 2026 Yi-Cheng Wang</span></footer>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <button class="lb-x" aria-label="Close" onclick="closeLb()">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+/* ---------- 語言切換(預設英文) ---------- */
+var lang = 'en';
+function toggleLang(){
+  lang = lang === 'en' ? 'zh' : 'en';
+  document.getElementById('langToggle').textContent = lang === 'en' ? '中文' : 'EN';
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v = el.getAttribute(lang === 'en' ? 'data-en' : 'data-zh');
+    if(v) el.innerHTML = v;
+  });
+}
+
+/* ---------- 導覽列:捲動時高亮當前段落 ---------- */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if(!('IntersectionObserver' in window) || !sections.length) return;
+
+  var visible = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var best = null, bestRatio = 0;
+    Object.keys(visible).forEach(function(id){
+      if(visible[id] > bestRatio){ bestRatio = visible[id]; best = id; }
+    });
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if(best && map[best]) map[best].classList.add('on');
+  }, { rootMargin: '-58px 0px -55% 0px', threshold: [0, .25, .5, .75, 1] });
+
+  sections.forEach(function(s){ io.observe(s); });
+})();
+
+/* ---------- 相簿橫向滑動 ---------- */
+(function(){
+  document.querySelectorAll('.gallery').forEach(function(g){
+    var head = g.previousElementSibling;
+    if(!head || !head.classList.contains('gallery-head')) return;
+    var nav  = head.querySelector('.gallery-nav');
+    var prev = nav.querySelector('[data-dir="-1"]');
+    var next = nav.querySelector('[data-dir="1"]');
+    var gap  = parseFloat(getComputedStyle(g).columnGap) || 14;
+
+    function step(dir){ g.scrollBy({ left: dir * (g.clientWidth + gap), behavior: 'smooth' }); }
+    prev.addEventListener('click', function(){ step(-1); });
+    next.addEventListener('click', function(){ step(1); });
+
+    function update(){
+      var max = g.scrollWidth - g.clientWidth;
+      nav.style.display = max <= 4 ? 'none' : 'flex';
+      prev.disabled = g.scrollLeft <= 4;
+      next.disabled = g.scrollLeft >= max - 4;
+    }
+    g.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
+
+/* ---------- Lightbox ---------- */
+var lastFocus = null;
+function openLb(src, el){
+  var img = el.querySelector('img');
+  if(!img || !img.complete || img.naturalWidth === 0) return;
+  lastFocus = el;
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lbImg').alt = img.alt || '';
+  var cap = el.parentElement.querySelector('.g-cap');
+  document.getElementById('lbCap').textContent = cap ? cap.textContent : '';
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.lb-x').focus();
+}
+function closeLb(e){
+  if(e && e.target.id !== 'lb' && !e.target.classList.contains('lb-x')) return;
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow = '';
+  if(lastFocus){ lastFocus.focus(); lastFocus = null; }
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+</script>
+
+</body>
+</html> -->
